@@ -1,40 +1,135 @@
-import pandas as pd
-import numpy as np
+# 📊 Student Performance Analytics Dashboard
 
-# Reproducibility
-np.random.seed(42)
+An interactive data visualization project built using **Python, Pandas, Matplotlib, and Streamlit**.
+This dashboard analyzes student performance based on marks, attendance, study hours, and efficiency.
 
-# Number of students
-n = 50
+---
 
-# Generate data
-data = {
-    "StudentID": range(1, n+1),
-    "Marks": np.random.randint(40, 100, n),        # Marks between 40–100
-    "Attendance": np.random.randint(60, 100, n),   # Attendance between 60–100%
-    "StudyHours": np.random.randint(1, 10, n)      # Study hours between 1–9
-}
+## 🚀 Features
 
-df = pd.DataFrame(data)
+* 📂 Upload and analyze student dataset
+* 📊 Visualize performance using charts
+* 🎯 Grade distribution analysis
+* 📈 Study hours vs marks correlation
+* 📉 Attendance vs performance insights
+* 🏆 Top-performing students
+* 🔍 Filter students by grade
 
-# Efficiency = Marks / StudyHours
-df["Efficiency"] = (df["Marks"] / df["StudyHours"]).round(2)
+---
 
-# Assign Grades
-def assign_grade(marks):
-    if marks >= 90:
-        return "A"
-    elif marks >= 75:
-        return "B"
-    elif marks >= 50:
-        return "C"
-    else:
-        return "D"
+## 🛠️ Tech Stack
 
-df["Grade"] = df["Marks"].apply(assign_grade)
+* **Python**
+* **Pandas** – Data processing
+* **Matplotlib** – Visualization
+* **Streamlit** – Interactive dashboard
 
-# Save to CSV
-df.to_csv("students.csv", index=False)
+---
 
-print("✅ Dataset generated successfully as students.csv")
-print(df.head())
+##  Project Structure
+
+```
+ Student-Analytics
+ ┣ 📜 app.py
+ ┣ 📜 generate_data.py
+ ┣ 📜 students.csv
+ ┗ 📜 README.md
+```
+
+---
+
+## ⚙️ Installation
+
+```bash
+pip install streamlit pandas matplotlib
+```
+
+---
+
+## ▶️ Run the Project
+
+```bash
+streamlit run app.py
+```
+
+---
+
+## 📊 Dataset
+
+The dataset contains:
+
+* StudentID
+* Marks
+* Attendance (%)
+* Study Hours
+* Efficiency (Marks / StudyHours)
+* Grade (A, B, C, D)
+
+You can generate the dataset using:
+
+```bash
+python generate_data.py
+```
+
+---
+
+##  Screenshots
+
+###  Dashboard Overview
+
+![Dashboard](screenshots/dashboard.png)
+
+---
+
+###  Grade Distribution
+
+![Grade Distribution](screenshots/pie_chart.png)
+
+---
+
+###   Marks per student
+
+![Attendance](screenshots/bar.png)
+
+---
+
+###  Study Hours vs Marks
+
+![Scatter Plot](screenshots/scatter.png)
+
+
+---
+
+###  Top Students
+
+![Top Students](screenshots/top_students.png)
+
+---
+
+##  Insights
+
+* Students with higher study hours tend to score more marks
+* Attendance has moderate impact on performance
+* Efficiency helps identify smart study patterns
+* Majority of students fall under grade C and B
+
+---
+
+## 🔥 Future Improvements
+
+* Add **interactive charts (Plotly)**
+* Integrate **machine learning predictions**
+* Add **emotion detection (AI integration)**
+* Deploy using **Streamlit Cloud**
+
+---
+
+## 👨‍💻 Author
+
+Your Name
+
+---
+
+## 📄 License
+
+This project is open-source and free to use.
